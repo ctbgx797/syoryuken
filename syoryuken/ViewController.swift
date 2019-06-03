@@ -9,20 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    @IBOutlet var ryuImageView: UIImageView!
-    
-    var imageArray = [UIImage]()
-    
     //画像を配列から出すスピード
-    var timer2 = Timer()
+    //var timer2 = Timer()
     //var ti = Timer()
     //経過時間
-    var countUp = 0
-    var updateCount = 0
+    //var countUp = 0
+    //var updateCount = 0
+    //var imageArray = [UIImage]()
+    
+    @IBOutlet var ryuImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         let image0 = UIImage(named: "attak1.png")
         let image1 = UIImage(named: "attak2.png")
         let image2 = UIImage(named: "attak3.png")
@@ -44,17 +43,29 @@ class ViewController: UIViewController {
         let image18 = UIImage(named: "attak19.png")
         let image19 = UIImage(named: "attak20.png")
         
+        imageArray = [image0!,image1!,image2!,image3!,image4!,image5!,image6!,image7!,image8!,image9!,image10!,image11!,image12!,image13!,image14!,image15!,image16!,image17!,image18!,image19!]
+        */
+        ryuImageView.image = UIImage(named: "attak1")
         
-         imageArray = [image0!,image1!,image2!,image3!,image4!,image5!,image6!,image7!,image8!,image9!,image10!,image11!,image12!,image13!,image14!,image15!,image16!,image17!,image18!,image19!,]
     }
     
     @IBAction func startSyoryuken(_ sender: UIButton) {
-        timer2 = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
+            for i in 1 ... 20{
+                var i = 1
+                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {_ in
+                    self.ryuImageView.image = UIImage(named: "attak\(i)")
+                    i += 1
+                //DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1 * Double(i)) {
+                    
+                    }
+        
+        /*
+        timer2 = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { (timer) in
             //配列の中から画像を取り出して、UIImageViewの画像へ反映していく
             //if(self.updateCount > 20){ //Thread 1: Fatal error: Index out of range
             if(self.updateCount > 19){
             
-                self.updateCount = 19
+                self.updateCount = 0
                 self.ryuImageView.image = UIImage(named: "attak1.png")
             }else{
                 
@@ -63,7 +74,9 @@ class ViewController: UIViewController {
             }
             self.updateCount = self.updateCount + 1
         })
-    
+        */
+        
+        }
     }
 
 }
