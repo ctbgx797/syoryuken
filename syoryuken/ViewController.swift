@@ -19,13 +19,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startSyoryuken(_ sender: UIButton) {
-            for i in 1 ... 20{
+        //for _ in 1 ... 20{
                 var i = 1
                 Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {_ in
-                    self.ryuImageView.image = UIImage(named: "attak\(i)")
-                    i += 1
-                    
+                    if (i <= 20){
+                        self.ryuImageView.image = UIImage(named: "attak\(i)")
+                        i += 1
                     }
+                    //}
         
 
         }
